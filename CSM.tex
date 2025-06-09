@@ -1,0 +1,169 @@
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{microtype}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{ifthen}
+
+% \usepackage{mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage[version=4]{mhchem}
+\usepackage{arydshln}
+\usepackage{verbatim}
+\usepackage{listings}
+% \usepackage{biblatex}
+\usepackage{amsmath}
+
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\usetikzlibrary{decorations.pathmorphing}
+
+\AtBeginSection[]{
+  \setcounter{footnote}{0}
+  % \addtocounter{framenumber}{-1}
+  % \begin{frame}
+  %   \frametitle{Outline}
+  %   \tableofcontents[currentsection]
+  % \end{frame}
+}
+
+
+\usetheme{default}
+
+
+
+% Remove the navigation arrows 
+\setbeamertemplate{navigation symbols}{}
+
+% Define CSM colors to be used throughout
+\definecolor{darkblue}{RGB}{33,49,77}
+\definecolor{lightblue}{RGB}{146,162,189}
+\definecolor{accent}{RGB}{210,73,42}
+\definecolor{csmblue}{RGB}{38,63,106}
+\definecolor{paleblue}{RGB}{206,213,221}
+\definecolor{coolgray}{RGB}{178,180,179}
+\definecolor{metallic}{RGB}{139,141,142}
+
+
+\setbeamercolor{darkblue_bc}{fg = white, bg = darkblue}
+\setbeamercolor{structure}{fg = black, bg = darkblue}    % this sets the font color in the block title
+\setbeamercolor{block title}{fg = white, bg = darkblue}
+\setbeamercolor{block body}{bg = paleblue}
+\setbeamercolor{title}{bg = white, fg = darkblue}
+\setbeamercolor{frametitle}{fg=darkblue}
+\setbeamercolor{coverup}{bg=white, fg=white}
+
+
+
+
+
+
+
+\setbeamertemplate{frametitle}{ \insertframetitle%
+    \vphantom{g} % invisible g to make the rule below title always the same height
+    \hfill
+    \begin{textblock}{3}(14.3, 0.5)
+        \begin{beamercolorbox}[ht=1.1cm, sep=.1cm]{fg=yellow, bg=blue}
+            \tiny
+            \tableofcontents[currentsection]
+        \end{beamercolorbox}
+    \end{textblock}
+    % \begin{beamercolorbox}[wd=3cm, sep=1em]{fg=yellow,bg=white!10!blue}
+    %     \tiny
+    %     \tableofcontents[currentsection]
+    % \end{beamercolorbox}
+    \\  \small{\insertframesubtitle} \vspace{-.3cm} \rule{0.95\textwidth}{0.4pt} }
+    % \\  \small{\insertframesubtitle} \vspace{0.25ex} \rule{0.9\textwidth}{0.4pt} }
+
+
+
+% \newcommand{\unilogowide}{
+%     \setlength{\TPHorizModule}{1cm}
+%     \setlength{\TPVertModule}{1cm}
+%     % \begin{textblock}{1}(0.25,9.075)
+%     \begin{textblock}{1}(0.25, 8.475)
+%     \includegraphics[height=0.45cm]{Supporting_files/Presentation_template/Mines_EEE_reverse4C_R.png}
+%     \end{textblock}
+% }
+
+
+\newcommand{\unilogowide}{
+    \setlength{\TPHorizModule}{1cm}
+    \setlength{\TPVertModule}{1cm}
+    \begin{textblock}{5}(0.25, 8.475)
+    \includegraphics[height=0.4cm]{Mines_EEE_reverse4C_R.png}
+    \end{textblock}
+}
+
+\newcommand{\citeone}[1]{
+    \setlength{\TPHorizModule}{1cm}
+    \setlength{\TPVertModule}{1cm}
+%     \begin{textblock}{4}(5, 9.075)
+    \begin{textblock}{4}(5, 8.5)
+        \begin{beamercolorbox}[ht=.45cm, sep=.1cm]{darkblue_bc}
+            \scalebox{.45}{
+                \begin{tabular}{l}
+                    #1 \\
+                \end{tabular}
+            }      
+        \end{beamercolorbox}
+    \end{textblock}
+}
+
+
+
+
+\newcommand{\citetwo}[2]{
+    \setlength{\TPHorizModule}{1cm}
+    \setlength{\TPVertModule}{1cm}
+    % \begin{textblock}{4}(5, 9.075)
+    \begin{textblock}{4}(5, 8.5)
+        \begin{beamercolorbox}[ht=.45cm, sep=0.01cm]{darkblue_bc}
+            \scalebox{.45}{
+                \begin{tabular}{l}
+                    #1 \\
+                    #2
+                \end{tabular}
+            }
+        \end{beamercolorbox}
+    \end{textblock}
+}
+
+\setbeamertemplate{footline}
+{
+    \unilogowide
+    % ht was 6ex
+    \begin{beamercolorbox}[ht=0.6cm, leftskip=4.5cm, rightskip=0.3cm]{darkblue_bc}
+        % \vspace{0.075cm}
+        \vspace{0.15cm}
+
+        % \hfill \insertshorttitle{}  - \insertshortauthor    
+        % \hfill \insertsection{}  \insertframenumber /\inserttotalframenumber
+
+        % \hfill 
+
+        \hfill  \insertshortauthor{} - \insertshorttitle{} \insertframenumber /\inserttotalframenumber 
+        
+        % \vspace{0.1cm}
+        \vspace{0.2cm}
+        % \vspace{0.05cm}
+    \end{beamercolorbox}
+}
+
+
+
+\setbeamertemplate{blocks}[rounded]% [shadow=false]
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{itemize subsubitem}[circle]
